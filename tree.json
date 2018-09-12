@@ -1,0 +1,426 @@
+{
+    "user": {
+        "name": "",
+        "totalExp": 0,
+        "email": "",
+        "password": "",
+        "level": ""
+    },
+    "modules": {
+        "basic": {
+            "experience": 0,
+            "requires": [],
+            "nodes": {
+                "unixConsole": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                },
+                "structProgramFund": {
+                    "completed": false,
+                    "exp": 250,
+                    "requires": []
+                },
+                "functionsAndMethods": {
+                    "completed": false,
+                    "exp": 150,
+                    "requires": ["structProgramFund"]
+                },
+                "dataStructures": {
+                    "completed": false,
+                    "exp": 200,
+                    "requires": ["functionsAndMethods"]
+                },
+                "recursivity": {
+                    "completed": false,
+                    "exp": 300,
+                    "requires": ["functionsAndMethods"]
+                },
+                "generalAlgorythms": {
+                    "completed": false,
+                    "exp": 200,
+                    "requires": ["dataStructures", "recursivity"]
+                },
+                "OOP": {
+                    "completed": false,
+                    "exp": 150,
+                    "requires": ["dataStructures"]
+                },
+                "MVCpattern": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["OOP"]
+                },
+                "interfaces": {
+                    "completed": false,
+                    "exp": 150,
+                    "requires": ["OOP"]
+                }
+            }
+        },
+        "bbdd": {
+            "experience": 0,
+            "requires": ["basic"],
+            "nodes": {
+                "databases": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                },
+                "relationalDDBB": {
+                    "completed": false,
+                    "exp": 250,
+                    "requires": ["databases"]
+                },
+                "SQL": {
+                    "completed": false,
+                    "exp": 300,
+                    "requires": ["relationalDDBB"]
+                },
+                "nonRelationalDDBB": {
+                    "completed": false,
+                    "exp": 150,
+                    "requires": ["databases"]
+                },
+                "mongoDB": {
+                    "completed": false,
+                    "exp": 200,
+                    "requires": ["nonRelationalDDBB"]
+                }
+            }
+        },
+        "graphicDesign": {
+            "experience": 0,
+            "requires": ["web.graphDesignFund"],
+            "nodes": {
+                "graphDesignPatters": {
+                    "completed": false,
+                    "exp": 200,
+                    "requires": []
+                },
+                "animation": {
+                    "completed": false,
+                    "exp": 300,
+                    "requires": []
+                },
+                "typographies": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                },
+                "rasterImages": {
+                    "completed": false,
+                    "exp": 200,
+                    "requires": []
+                },
+                "vectorialDrawing": {
+                    "completed": false,
+                    "exp": 400,
+                    "requires": []
+                },
+                "digitalMedia": {
+                    "completed": false,
+                    "exp": 200,
+                    "requires": []
+                },
+                "colorTheory": {
+                    "completed": false,
+                    "exp": 150,
+                    "requires": []
+                }
+            }
+        },
+        "IOT": {
+            "experience": 0,
+            "requires": ["basic"],
+            "nodes": {
+                "arduinoFund": {
+                    "completed": false,
+                    "exp": 300,
+                    "requires": []
+                },
+                "sensoring": {
+                    "completed": false,
+                    "exp": 400,
+                    "requires": ["arduinoFund"]
+                },
+                "welding": {
+                    "completed": false,
+                    "exp": 150,
+                    "requires": ["arduinoFund"]
+                },
+                "raspBerries": {
+                    "completed": false,
+                    "exp": 400,
+                    "requires": ["welding", "sensoring"]
+                }
+            }
+        },
+        "AI": {
+            "experience": 0,
+            "requires": ["basic"],
+            "nodes": {
+                "Julia": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                },
+                "PythonFund": {
+                    "completed": false,
+                    "exp": 200,
+                    "requires": []
+                },
+                "supervisedAlgorythms": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                },
+                "unsupervisedAlgorythms": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                },
+                "geneticalAlgorythms": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                },
+                "machineLearning": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                },
+                "deepLearning": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                }
+            }
+        },
+        "REST": {
+            "experience": 0,
+            "requires": ["DDBB", "mobile.mobileDevREST"],
+            "nodes": {
+                "RESTservices": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                },
+                "firebase": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["RESTservices"]
+                },
+                "controllers": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["RESTservices"]
+                },
+                "models": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["RESTservices"]
+                },
+                "routes": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["RESTservices"]
+                }
+            }
+        },
+        "blockchain": {
+            "experience": 0,
+            "requires": ["REST"],
+            "nodes": {
+                "bitcoin": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                },
+                "smartContracts": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["bitcoin"]
+                },
+                "solidity": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["smartContracts"]
+                },
+                "hyperledger": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["smartContracts"]
+                },
+                "dapps": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["solidity", "hyperledger"]
+                }
+            }
+        },
+        "mobile": {
+            "experience": 0,
+            "requires": ["basic", "REST.firebase"],
+            "nodes": {
+                "mobileAppDev": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": []
+                },
+                "androidDev": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["mobileAppDev"]
+                },
+                "iosDev": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["mobileAppDev"]
+                },
+                "androidDevXML": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["androidDev"]
+                },
+                "androidDevKotlin": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["androidDev"]
+                },
+                "androidDevJava": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["androidDev"]
+                },
+                "iosDevSwift": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["iosDev"]
+                },
+                "mobileDevLibraries": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["androidDevKotlin", "andoridDevJava", "iosDevSwift"]
+                },
+                "mobileDevREST": {
+                    "completed": false,
+                    "exp": 100,
+                    "requires": ["androidDevKotlin","andoridDevJava", "iosDevSwift"]
+                }
+            }
+        },
+        "web": {
+            "completed": false,
+            "experience": 1000,
+            "requires": ["basic"],
+                "nodes": {
+                    "webDev": {
+                        "completed": false,
+                        "experience": 150,
+                        "requires": []
+                        },
+                    "HTML": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["webDev"]
+                    },
+                    "CSS": {
+                       "completed": false,
+                        "experience": 250,
+                        "requires": ["webDev"]
+                    },
+                    "javaScript": {
+                       "completed": false,
+                        "experience": 250,
+                        "requires": ["webDev"]
+                        },
+                    "graphicDesignFund": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["CSS"]
+                    },
+                    "angularJS": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["javaScript"]
+                    },
+                    "vueJs": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["angularJS"]
+                    },
+                    "ionicJS": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["angularJS"]
+                    },
+                    "react": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["angularJS"]
+                    },
+                    "nodeJSFund": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["javaScript"]
+                    }
+        
+                }
+        },
+        "videogames": {
+            "completed": false,
+            "experience": 0,
+            "requires": ["basic"],
+                "nodes": {
+                    "interfaceUnity": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": []
+                    },
+                    "objectUnity": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["interfaceUnity"]
+                    },
+                    "gameObjProp": {
+                        "completed":false,
+                        "experience":250,
+                        "requires": ["objectUnity"]
+                    },
+                    "scriptingUnity": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["objectUnity"]
+                    }
+            }
+        },
+        "networking": {
+            "completed": false,
+            "experience": 0,
+            "requires": ["IOT"],
+                "nodes": {
+                    "TCP/IP": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": []
+                    },
+                    "TCP-UDP": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["TCP/IP"]
+                    },
+                    "SSH": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["TCP/IP"]
+                    },
+                    "FTP": {
+                        "completed": false,
+                        "experience": 250,
+                        "requires": ["SSH"]
+                    }
+                }  
+        }
+    }
+}
