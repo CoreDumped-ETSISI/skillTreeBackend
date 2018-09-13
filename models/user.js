@@ -10,7 +10,8 @@ const userSchema = new Schema({
         "totalExp": Number,
         "email": String,
         "password": String,
-        "level": Number
+        "level": Number,
+        "isAdmin": Boolean
     },
     modules: {
         "basic": {
@@ -430,3 +431,5 @@ const userSchema = new Schema({
         }
     }
 })
+
+module.exports = mongoose.model('User', UserSchema);
