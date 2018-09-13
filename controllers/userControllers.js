@@ -520,6 +520,10 @@ function deleteUser(req, res) {
     })
 }
 
+function notifyAdminsForValidation(req, res) {
+    //Get TelegramBot endpoint to send message to VIP group.
+}
+
 
 
 module.exports = {
