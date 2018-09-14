@@ -434,6 +434,8 @@ function signUp(req,res){
     User.findOne({email: email}).exec((err, userExist) => {
         if(err) return res.sendStatus(500)
         if(userExist) return res.sendStatus(403)
+        if (!input.validEmail(req.body.email)) return res.status(402).send({"message": "Given email is not valid, please check you wrote it properly"})
+        if (!input.validPassword(req.body.email)) return res.status(402).send({"message": "Given password is not valid, please choose another one"})
 
         const User = new User({
             name: name,
