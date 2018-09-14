@@ -98,7 +98,7 @@ const userSchema = new Schema({
         },
         "graphicDesign": {
             "experience": 0,
-            "requires": ["web.graphDesignFund"],
+            "requires": ["web.graphDesignFund", "basic"],
             "nodes": {
                 "graphDesignPatters": {
                     "completed": false,

@@ -3,6 +3,10 @@
 const config = require('../config');
 const input = require('../services/inputValidators');
 const User = require('../models/user')
+const TelegramBot = require('node-telegram-bot-api')
+const TGtoken = config.TGtoken
+
+const bot = new TelegramBot(TGtoken, {polling: false})
 
 function signUp(req,res){
     let name = req.body.name
@@ -451,6 +455,20 @@ function signUp(req,res){
     })
 }
 
+function getUserModules(req, res) {
+    if(!req.params._id) return res.status(500).send({"message":"Error on query parameters"})
+
+    User.findOne({_id:req.params._id}, (err, user) => {
+        if(err) return res.status(500).send({"message": "Error processing request"})
+        if(!user) return res.status(404).send({"message": "User with such _id not found"})
+        return user.modules
+    })
+}
+
+function getBaseExpMultiplier(){
+    return {"baseExpMultiplier": config.expMultiplier}
+}
+
 function login(req, res) {
     if (!input.validEmail(req.body.email)) return res.sendStatus(400);
     if (!req.body.password) return res.sendStatus(400);
@@ -521,17 +539,35 @@ function deleteUser(req, res) {
 }
 
 function notifyAdminsForValidation(req, res) {
-    //Get TelegramBot endpoint to send message to VIP group.
+
+    if(!req.params._id) return res.status(502).send({"message": "Error on query parameters. Missing user._id"})
+
+    User.findOne({_id: req.params._id}, (err, user) => {
+        if(err) return res.status(500).send({"message": "Error processing request"})
+        if(!user) return res.status(404).send({"message": "User couldn't be found"})
+        if(!req.params.validatingNode) return res.status(502).send({"message": "Error on query params. Missing moduleName"})
+
+        const moduleForApproval = req.params.validatingNode
+        if(user.modules.moduleForApproval.completed) return res.status(401).send({"message": "This module has already been completed!"})
+
+        const message = "The user " + user.name + ", which mail is: [" + user.email + "] has requested a new validating test for this competence: " + moduleForApproval
+        bot.sendMessage(config.privateChatId, message).catch((error) => {
+            return res.status(500).send({"message": "Error sending message to Validators, please contact staff"})
+        })
+
+        return res.status(200).send({"message": "Message sent to Validators, asking for testing this competence: " + moduleForApproval})
+    })
 }
-
-
 
 module.exports = {
     signUp,
     login,
+    getUserModules,
+    getBaseExpMultiplier,
     updateUserModules,
     getRankingOfUsers,
     getUserByName,
     getUserList,
-    deleteUser
+    deleteUser,
+    notifyAdminsForValidation
 }
