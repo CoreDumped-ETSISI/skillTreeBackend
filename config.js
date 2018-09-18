@@ -1,6 +1,6 @@
 'use strict'
 
-const port = 3030
-const TGtoken = '[telegram_token]'
-const privateChatId= '[private_chat_id]'
+const port = 3000
+const TGtoken = 'TELEGRAM_TOKEN'
+const privateChatId= '[PRIVATE_CHAT_ID]'
 const expMultiplier = 1

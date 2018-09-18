@@ -13,7 +13,7 @@ function signUp(req,res){
     let email = req.body.email
     let password = req.body.password
     let isAdmin = req.body.isAdmin
-    let modules = {
+    /*let modules = {
         "basic": {
             "experience": 0,
             "requires": [],
@@ -429,7 +429,7 @@ function signUp(req,res){
                     }
                 }  
         }
-    }
+    }*/
 
     User.findOne({email: email}).exec((err, userExist) => {
         if(err) return res.sendStatus(500)
@@ -444,8 +444,6 @@ function signUp(req,res){
             level: 0,
             isAdmin: isAdmin,
             password: password,
-            modules: modules
-
         })
         user.save((err, userSaved) => {
             if(err) {
@@ -484,7 +482,9 @@ function login(req, res) {
 }
 
 function updateUserModules(req, res) {
+    if(!req.body.modules) return res.status(402).send({"message": "Error: no modules found on request."})
     let modules = req.body.modules
+    if(!req.body.email) return res.status(402).send({"message": "Error: no user email found on request."})
     User.findOne({email: req.body.email}, (err, user) => {
         if (err) return res.sendStatus(500);
         if (!user) return res.sendStatus(404);
@@ -524,10 +524,9 @@ function getRankingOfUsers(req, res) {
             let info = {"name": user.name, "level": user.level}
             namesAndLevels.push(info)
         });
-        res.status(200).send(namesAndLevels)
+        res.status(200).send(namesAndLevels.sort(function(a,b) {return a.level-b.level}))
     })
 }
-
 
 function deleteUser(req, res) {
     let userId = req.params.id;
