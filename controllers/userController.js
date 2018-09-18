@@ -542,11 +542,11 @@ function deleteUser(req, res) {
 function notifyAdminsForValidation(req, res) {
 
     if(!req.params._id) return res.status(502).send({"message": "Error on query parameters. Missing user._id"})
+    if(!req.params.validatingNode) return res.status(502).send({"message": "Error on query params. Missing moduleName"})
 
     User.findOne({_id: req.params._id}, (err, user) => {
         if(err) return res.status(500).send({"message": "Error processing request"})
         if(!user) return res.status(404).send({"message": "User couldn't be found"})
-        if(!req.params.validatingNode) return res.status(502).send({"message": "Error on query params. Missing moduleName"})
 
         const moduleForApproval = req.params.validatingNode
         if(user.modules.moduleForApproval.completed) return res.status(401).send({"message": "This module has already been completed!"})

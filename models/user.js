@@ -13,421 +13,499 @@ const userSchema = new Schema({
         "level": Number,
         "isAdmin": Boolean
     },
-    modules: {
-        "basic": {
+    modules: [{
+            "name": "Basic",
             "experience": 0,
             "requires": [],
-            "nodes": {
-                "unixConsole": {
+            "children": [{
+                    "name": "unixConsole",
                     "completed": false,
                     "exp": experienceTable.unixConsoleExp,
                     "requires": []
                 },
-                "structProgramFund": {
+                {
+                    "name": "structProgramFund",
                     "completed": false,
                     "exp": experienceTable.structProgramFundExp,
                     "requires": []
                 },
-                "functionsAndMethods": {
+                {
+                    "name": "functionsAndMethods",
                     "completed": false,
                     "exp": experienceTable.functionsAndMethodsExp,
                     "requires": ["structProgramFund"]
                 },
-                "dataStructures": {
+                {
+                    "name": "dataStructures",
                     "completed": false,
                     "exp": experienceTable.dataStructuresExp,
                     "requires": ["functionsAndMethods"]
                 },
-                "recursivity": {
+                {
+                    "name": "recursivity",
                     "completed": false,
                     "exp": experienceTable.recursivityExp,
                     "requires": ["functionsAndMethods"]
                 },
-                "generalAlgorythms": {
+                {
+                    "name": "generalAlgorythms",
                     "completed": false,
                     "exp": experienceTable.generalAlgorythmsExp,
                     "requires": ["dataStructures", "recursivity"]
                 },
-                "OOP": {
+                {
+                    "name": "OOP",
                     "completed": false,
                     "exp": experienceTable.OOPExp,
                     "requires": ["dataStructures"]
                 },
-                "MVCpattern": {
+                {
+                    "name": "MVCpattern",
                     "completed": false,
                     "exp": experienceTable.MVCpatternExp,
                     "requires": ["OOP"]
                 },
-                "interfaces": {
+                {
+                    "name": "interfaces",
                     "completed": false,
                     "exp": experienceTable.interfacesExp,
                     "requires": ["OOP"]
                 }
-            }
+            ]
         },
-        "bbdd": {
+        {
+            "name": "interfaces",
             "experience": 0,
             "requires": ["basic"],
-            "nodes": {
-                "databases": {
+            "children": [
+                {
+                    "name": "databases",
                     "completed": false,
                     "exp": experienceTable.databasesExp,
                     "requires": []
                 },
-                "relationalDDBB": {
+                {
+                    "name": "relationalDDBB",
                     "completed": false,
                     "exp": experienceTable.relationalDDBBExp,
                     "requires": ["databases"]
                 },
-                "SQL": {
+                {
+                    "name": "SQL",
                     "completed": false,
                     "exp": experienceTable.SQLExp,
                     "requires": ["relationalDDBB"]
                 },
-                "nonRelationalDDBB": {
+                {
+                    "name": "nonRelationalDDBB",
                     "completed": false,
                     "exp": experienceTable.nonRelationalDDBBExp,
                     "requires": ["databases"]
                 },
-                "mongoDB": {
+                {
+                    "name": "mongoDB",
                     "completed": false,
                     "exp": experienceTable.mongoDBExp,
                     "requires": ["nonRelationalDDBB"]
                 }
-            }
+            ]
         },
-        "graphicDesign": {
+        {
+            "name": "graphicDesign",
             "experience": 0,
             "requires": ["web.graphDesignFund", "basic"],
-            "nodes": {
-                "graphDesignPatters": {
+            "children": [
+                {
+                    "name": "graphDesignPatters",
                     "completed": false,
                     "exp": experienceTable.graphDesignPattersExp,
                     "requires": []
                 },
-                "animation": {
+                {
+                    "name": "animation",
                     "completed": false,
                     "exp": experienceTable.animationExp,
                     "requires": []
                 },
-                "typographies": {
+                {
+                    "name": "typographies",
                     "completed": false,
                     "exp": experienceTable.typographiesExp,
                     "requires": []
                 },
-                "rasterImages": {
+                {
+                    "name": "rasterImages",
                     "completed": false,
                     "exp": experienceTable.rasterImagesExp,
                     "requires": []
                 },
-                "vectorialDrawing": {
+                {
+                    "name": "vectorialDrawing",
                     "completed": false,
                     "exp": experienceTable.vectorialDrawingExp,
                     "requires": []
                 },
-                "digitalMedia": {
+                {
+                    "name": "digitalMedia",
                     "completed": false,
                     "exp": experienceTable.digitalMediaExp,
                     "requires": []
                 },
-                "colorTheory": {
+                {
+                    "name": "colorTheory",
                     "completed": false,
                     "exp": experienceTable.colorTheoryExp,
                     "requires": []
                 }
-            }
+            ]
         },
-        "IOT": {
+        {
+            "name": "IOT",
             "experience": 0,
             "requires": ["basic"],
-            "nodes": {
-                "arduinoFund": {
+            "children": [
+                {
+                    "name": "arduinoFund",
                     "completed": false,
                     "exp": experienceTable.arduinoFundExp,
                     "requires": []
                 },
-                "sensoring": {
+                {
+                    "name": "sensoring",
                     "completed": false,
                     "exp": experienceTable.sensoringExp,
                     "requires": ["arduinoFund"]
                 },
-                "welding": {
+                {
+                    "name": "welding",
                     "completed": false,
                     "exp": experienceTable.weldingExp,
                     "requires": ["arduinoFund"]
                 },
-                "raspBerries": {
+                {
+                    "name": "raspBerries",
                     "completed": false,
                     "exp": experienceTable.raspBerriesExp,
                     "requires": ["welding", "sensoring"]
                 }
-            }
+            ]
         },
-        "AI": {
+        {
+            "name": "AI",
             "experience": 0,
             "requires": ["basic"],
-            "nodes": {
-                "Julia": {
+            "children": [
+                {
+                    "name": "Julia",
                     "completed": false,
                     "exp": experienceTable.JuliaExp,
                     "requires": []
                 },
-                "PythonFund": {
+                {
+                    "name": "PythonFund",
                     "completed": false,
                     "exp": experienceTable.PythonFundExp,
                     "requires": []
                 },
-                "supervisedAlgorythms": {
+                {
+                    "name": "supervisedAlgorythms",
                     "completed": false,
                     "exp": experienceTable.supervisedAlgorythmsExp,
                     "requires": []
                 },
-                "unsupervisedAlgorythms": {
+                {
+                    "name": "unsupervisedAlgorythms",
                     "completed": false,
                     "exp": experienceTable.unsupervisedAlgorythmsExp,
                     "requires": []
                 },
-                "geneticalAlgorythms": {
+                {
+                    "name": "geneticalAlgorythms",
                     "completed": false,
                     "exp": experienceTable.geneticalAlgorythmsExp,
                     "requires": []
                 },
-                "machineLearning": {
+                {
+                    "name": "machineLearning",
                     "completed": false,
                     "exp": experienceTable.machineLearningExp,
                     "requires": []
                 },
-                "deepLearning": {
+                {
+                    "name": "deepLearning",
                     "completed": false,
                     "exp": experienceTable.deepLearningExp,
                     "requires": []
                 }
-            }
+            ]
         },
-        "REST": {
+        {
+            "name": "REST",
             "experience": 0,
             "requires": ["DDBB", "mobile.mobileDevREST"],
-            "nodes": {
-                "RESTservices": {
+            "children": [
+                {
+                    "name": "RESTservices",
                     "completed": false,
                     "exp": experienceTable.RESTservicesExp,
                     "requires": []
                 },
-                "firebase": {
+                {
+                    "name": "firebase",
                     "completed": false,
                     "exp": experienceTable.firebaseExp,
                     "requires": ["RESTservices"]
                 },
-                "controllers": {
+                {
+                    "name": "controllers",
                     "completed": false,
                     "exp": experienceTable.controllersExp,
                     "requires": ["RESTservices"]
                 },
-                "models": {
+                {
+                    "name": "models",
                     "completed": false,
                     "exp": experienceTable.modelsExp,
                     "requires": ["RESTservices"]
                 },
-                "routes": {
+                {
+                    "name": "routes",
                     "completed": false,
                     "exp": experienceTable.routesExp,
                     "requires": ["RESTservices"]
                 }
-            }
+            ]
         },
-        "blockchain": {
+        {
+            "name": "blockchain",
             "experience": 0,
             "requires": ["REST"],
-            "nodes": {
-                "bitcoin": {
+            "children": [
+                {
+                    "name": "bitcoin",
                     "completed": false,
                     "exp": experienceTable.bitcoinExp,
                     "requires": []
                 },
-                "smartContracts": {
+                {
+                    "name": "smartContracts",
                     "completed": false,
                     "exp": experienceTable.smartContractsExp,
                     "requires": ["bitcoin"]
                 },
-                "Solidity": {
+                {
+                    "name": "Solidity",
                     "completed": false,
                     "exp": experienceTable.SolidityExp,
                     "requires": ["smartContracts"]
                 },
-                "Hyperledger": {
+                {
+                    "name": "Hyperledger",
                     "completed": false,
                     "exp": experienceTable.HyperledgerExp,
                     "requires": ["smartContracts"]
                 },
-                "dapps": {
+                {
+                    "name": "dapps",
                     "completed": false,
                     "exp": experienceTable.dappsExp,
                     "requires": ["solidity", "hyperledger"]
                 }
-            }
+            ]
         },
-        "mobile": {
+        {
+            "name": "mobile",
             "experience": 0,
             "requires": ["basic", "REST.firebase"],
-            "nodes": {
-                "mobileAppDev": {
+            "children": [
+                {
+                    "name": "mobileAppDev",
                     "completed": false,
                     "exp": experienceTable.mobileAppDevExp,
                     "requires": []
                 },
-                "androidDev": {
+                {
+                    "name": "androidDev",
                     "completed": false,
                     "exp": experienceTable.androidDevExp,
                     "requires": ["mobileAppDev"]
                 },
-                "iosDev": {
+                {
+                    "name": "iosDev",
                     "completed": false,
                     "exp": experienceTable.iosDevExp,
                     "requires": ["mobileAppDev"]
                 },
-                "androidDevXML": {
+                {
+                    "name": "androidDevXML",
                     "completed": false,
                     "exp": experienceTable.androidDevXMLExp,
                     "requires": ["androidDev"]
                 },
-                "androidDevKotlin": {
+                {
+                    "name": "androidDevKotlin",
                     "completed": false,
                     "exp": experienceTable.androidDevKotlinExp,
                     "requires": ["androidDev"]
                 },
-                "androidDevJava": {
+                {
+                    "name": "androidDevJava",
                     "completed": false,
                     "exp": experienceTable.androidDevJavaExp,
                     "requires": ["androidDev"]
                 },
-                "iosDevSwift": {
+                {
+                    "name": "iosDevSwift",
                     "completed": false,
                     "exp": experienceTable.iosDevSwiftExp,
                     "requires": ["iosDev"]
                 },
-                "mobileDevLibraries": {
+                {
+                    "name": "mobileDevLibraries",
                     "completed": false,
                     "exp": experienceTable.mobileDevLibrariesExp,
                     "requires": ["androidDevKotlin", "andoridDevJava", "iosDevSwift"]
                 },
-                "mobileDevREST": {
+                {
+                    "name": "mobileDevREST",
                     "completed": false,
                     "exp": experienceTable.mobileDevRESTExp,
                     "requires": ["androidDevKotlin","andoridDevJava", "iosDevSwift"]
                 }
-            }
+            ]
         },
-        "web": {
+        {
+            "name": "web",
             "completed": false,
             "experience": 0,
             "requires": ["basic"],
-                "nodes": {
-                    "webDev": {
+                "children": [
+                    {
+                        "name": "webDev",
                         "completed": false,
                         "experience": experienceTable.webDevExp,
                         "requires": []
                         },
-                    "HTML": {
+                    {
+                        "name": "HTML",
                         "completed": false,
                         "experience": experienceTable.HTMLExp,
                         "requires": ["webDev"]
                     },
-                    "CSS": {
-                       "completed": false,
+                    {
+                        "name": "CSS",
+                        "completed": false,
                         "experience": experienceTable.CSSExp,
                         "requires": ["webDev"]
                     },
-                    "javaScript": {
-                       "completed": false,
+                    {
+                        "name": "JavaScript",
+                        "completed": false,
                         "experience": experienceTable.javaScriptExp,
                         "requires": ["webDev"]
-                        },
-                    "graphicDesignFund": {
+                    },
+                    {
+                        "name": "graphicDesignFund",
                         "completed": false,
                         "experience": experienceTable.graphicDesignFundExp,
                         "requires": ["CSS"]
                     },
-                    "angularJS": {
+                    {
+                        "name": "AngularJS",
                         "completed": false,
                         "experience": experienceTable.angularJSExp,
                         "requires": ["javaScript"]
                     },
-                    "vueJs": {
+                    {
+                        "name": "VueJs",
                         "completed": false,
                         "experience": experienceTable.vueJsExp,
                         "requires": ["angularJS"]
                     },
-                    "ionicJS": {
+                    {
+                        "name": "ionicJS",
                         "completed": false,
                         "experience": experienceTable.ionicJSExp,
                         "requires": ["angularJS"]
                     },
-                    "react": {
+                    {
+                        "name": "React",
                         "completed": false,
                         "experience": experienceTable.reactExp,
                         "requires": ["angularJS"]
                     },
-                    "nodeJSFund": {
+                    {
+                        "name": "NodeJSFund",
                         "completed": false,
                         "experience": experienceTable.nodeJSFundExp,
                         "requires": ["javaScript"]
                     }
         
-                }
+                ]
         },
-        "videogames": {
+        {
+            "name": "videogames",
             "completed": false,
             "experience": 0,
             "requires": ["basic"],
-                "nodes": {
-                    "interfaceUnity": {
+                "children": [
+                    {
+                        "name": "interfaceUnity",
                         "completed": false,
                         "experience": experienceTable.interfaceUnityExp,
                         "requires": []
                     },
-                    "objectUnity": {
+                    {
+                        "name": "objectUnity",
                         "completed": false,
                         "experience": experienceTable.objectUnityExp,
                         "requires": ["interfaceUnity"]
                     },
-                    "gameObjProp": {
+                    {
+                        "name": "gameObjProp",
                         "completed":false,
                         "experience": experienceTable.gameObjPropExp, 
                         "requires": ["objectUnity"]
                     },
-                    "scriptingUnity": {
+                    {
+                        "name": "scriptingUnity",
                         "completed": false,
                         "experience": experienceTable.scriptingUnityExp,
                         "requires": ["objectUnity"]
                     }
-            }
+                ]
         },
-        "networking": {
+        {
+            "name": "networking",
             "completed": false,
             "experience": 0,
             "requires": ["IOT"],
-                "nodes": {
-                    "TCP_IP": {
+                "children": [
+                    {
+                        "name": "TCP_IP",
                         "completed": false,
                         "experience": experienceTable.TCP_IPExp,
                         "requires": []
                     },
-                    "TCP_UDP": {
+                    {
+                        "name": "TCP_UDP",
                         "completed": false,
                         "experience": experienceTable.TCP_UDPExp,
                         "requires": ["TCP/IP"]
                     },
-                    "SSH": {
+                    {
+                        "name": "SSH",
                         "completed": false,
                         "experience": experienceTable.SSHExp,
                         "requires": ["TCP/IP"]
                     },
-                    "FTP": {
+                    {
+                        "name": "FTP",
                         "completed": false,
                         "experience": experienceTable.FTPExp,
                         "requires": ["SSH"]
                     }
-                }  
+                ] 
         }
     }
 })

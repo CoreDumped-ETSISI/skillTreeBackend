@@ -21,7 +21,8 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "mongodb": "^2.2.16",
-    "node-telegram-bot-api": "^0.30.0"
+    "node-telegram-bot-api": "^0.30.0",
+    "vue-tree-chart": "^1.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
