@@ -4,8 +4,8 @@
   "description": "REST services for skillTree web application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -19,12 +19,12 @@
   "homepage": "https://github.com/CoreDumped-ETSISI/skillTreeBackend#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "mongodb": "^2.2.16",
+    "mongoose": "^5.2.16",
     "node-telegram-bot-api": "^0.30.0",
+    "nodemon": "^1.18.4",
     "vue-tree-chart": "^1.1.1"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.4"
   }
 }
